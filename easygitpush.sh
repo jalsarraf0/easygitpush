@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# Script to manage git operations (commit, pull, push) with options
+# Script to automate git push to a GitHub repository
 
-# Function to display help
+# Function to display help (man page)
 man_page() {
     echo "NAME
-       git_manager.sh - A script to automate Git operations
+       easypush.sh - A script to automate Git operations
 
 SYNOPSIS
-       ./git_manager.sh [OPTIONS] [COMMIT_MESSAGE] [BRANCH_NAME]
+       ./easypush.sh [OPTIONS] [COMMIT_MESSAGE] [BRANCH_NAME]
 
 DESCRIPTION
        Automates common Git operations such as pulling, staging, committing, and pushing.
@@ -27,16 +27,16 @@ DESCRIPTION
 
 EXAMPLES:
        1. Display help:
-          ./git_manager.sh -h
+          ./easypush.sh -h
 
        2. Pull latest changes:
-          ./git_manager.sh -p
+          ./easypush.sh -p
 
        3. Stage changes and commit with a message:
-          ./git_manager.sh -s -c \"Fixing a bug\"
+          ./easypush.sh -s -c \"Fixing a bug\"
 
        4. Perform all operations and push to 'dev' branch:
-          ./git_manager.sh -a \"Adding a new feature\" dev
+          ./easypush.sh -a \"Adding a new feature\" dev
 "
 }
 

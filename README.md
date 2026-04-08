@@ -1,88 +1,67 @@
-# Easypush: Simplified Git Workflow Manager
+# easygitpush
 
-A user-friendly Bash script to automate Git operations such as pulling, staging, committing, and pushing to a branch.
+A Bash script that automates common Git operations — pull, stage, commit, and push — with a simple flag-based interface.
 
----
+## Features
 
-## 🚀 Features
+- Pull the latest changes from the remote
+- Stage all working directory changes
+- Commit with a custom message
+- Push to any branch (default: `main`)
+- All-in-one mode: pull, stage, commit, and push in a single command
 
-- **Pull Updates**: Automatically fetch the latest changes from the remote repository.
-- **Stage Changes**: Adds all modifications in the working directory to the staging area.
-- **Custom Commit Messages**: Commit your changes with a meaningful message of your choice.
-- **Push to Branch**: Push commits to the specified branch (default: `main`).
-- **All-in-One Command**: Use a single option to perform pull, stage, commit, and push.
+## Requirements
 
----
+- `git` installed and configured
+- A locally cloned repository with push access to the target branch
 
-## 📋 Prerequisites
+## Installation
 
-- A system with `git` installed and configured.
-- An existing GitHub repository cloned locally.
-- Commit access to the target branch (default: `main`).
+```bash
+# Clone or download
+git clone https://github.com/jalsarraf0/easygitpush.git
 
----
+# Make executable
+chmod +x easygitpush.sh
 
-## 🔧 Installation
+# Optional: make available system-wide
+sudo mv easygitpush.sh /usr/local/bin/easygitpush
+```
 
-1. Clone this repository or download the script directly:
-   git clone https://github.com/your-username/easypush.git
+## Usage
 
-   Alternatively, you can download the script:
-   wget https://github.com/your-username/easypush/raw/main/easypush.sh
+```bash
+./easygitpush.sh [OPTIONS] [COMMIT_MESSAGE] [BRANCH_NAME]
+```
 
-2. Make the script executable:
-   chmod +x easypush.sh
+| Option | Description |
+|--------|-------------|
+| `-h` | Display help |
+| `-p` | Pull latest changes from remote |
+| `-s` | Stage all changes (`git add -A`) |
+| `-c` | Commit staged changes (requires a commit message as the next argument) |
+| `-u <branch>` | Push to the specified branch (default: `main`) |
+| `-a <message> [branch]` | Run all operations: pull, stage, commit, push |
 
-3. (Optional) Add it to your system's `PATH` for easier access:
-   mv easypush.sh /usr/local/bin/easypush
+### Examples
 
----
+```bash
+# Pull latest changes
+./easygitpush.sh -p
 
-## 🖥️ Usage
+# Stage and commit
+./easygitpush.sh -s -c "Fix authentication bug"
 
-Run the script using the following syntax:
+# Push to a specific branch
+./easygitpush.sh -u dev
 
-./easypush [OPTIONS] [COMMIT_MESSAGE] [BRANCH_NAME]
+# All-in-one: pull, stage, commit, push to main
+./easygitpush.sh -a "Add rate limiting" main
 
-### **Options**
-- `-h`: Display help information.
-- `-p`: Pull the latest changes from the remote repository.
-- `-s`: Stage all changes in the working directory.
-- `-c`: Commit staged changes (requires a commit message).
-- `-u`: Push committed changes to a specified branch (default: `main`).
-- `-a`: Perform all operations (pull, stage, commit, and push). Requires a commit message.
+# All-in-one to a non-default branch
+./easygitpush.sh -a "WIP: refactor auth" feature/auth
+```
 
----
+## License
 
-## 💡 Examples
-
-1. Display Help:
-   ./easypush -h
-
-2. Pull the Latest Changes:
-   ./easypush -p
-
-3. Stage Changes and Commit:
-   ./easypush -s -c "Updated documentation"
-
-4. Push Changes to a Specific Branch:
-   ./easypush -u dev
-
-5. Perform All Operations:
-   ./easypush -a "Initial commit" main
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License.
-
----
-
-## 📞 Support
-
-For any issues or feature requests, feel free to open an issue in the GitHub repository: https://github.com/your-username/easypush.
-
----
-
-*Happy Coding!*
+MIT License — Copyright (c) 2024 Jamal Al-Sarraf
